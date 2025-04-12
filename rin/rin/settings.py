@@ -122,14 +122,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
+# Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # Куда collectstatic копирует файлы
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'main/static')]  # Где исходные файлы
+STAIC_ROOT = '/app/static'  # Соответствует монтированию static_volume в Docker
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'main/static'),  # Где исходные статические файлы
+]
+
+# Media files (загружаемые пользователями)
+MEDIA_URL = '/media/'  # Изменил с "products/media/" для единообразия
+MEDIA_ROOT = '/app/media'  # Соответствует монтированию media_volume в Docker
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-MEDIA_URL = "products/media/"
-MEDIA_ROOT = BASE_DIR / "products/media"

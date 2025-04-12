@@ -1,5 +1,5 @@
 # Базовый образ
-FROM python:3.9-slim
+FROM python:3.11-slim
 
 # 1. Установка системных зависимостей (только то, что нужно для ваших pip-пакетов)
 RUN apt-get update && apt-get install -y \

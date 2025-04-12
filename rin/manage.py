@@ -20,3 +20,10 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+ALLOWED_HOSTS = [
+    '37.46.19.237',  # Ваш текущий IP
+    'localhost',
+    '127.0.0.1',
+    # Другие ваши домены/IP
+]

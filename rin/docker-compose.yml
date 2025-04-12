@@ -3,18 +3,10 @@ version: '3.8'
 services:
   web:
     build: .
-    ports:
-      - "8000:8000"
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
-      - static_volume:/app/static  # Для статики
+    ports:
+      - "8000:8000"
     environment:
-      - DJANGO_SETTINGS_MODULE=rin.settings
-      - PYTHONUNBUFFERED=1
-    command: >
-      sh -c "python manage.py migrate &&
-             python manage.py collectstatic --noinput &&
-             gunicorn --bind 0.0.0.0:8000 rin.wsgi:application"
-
-volumes:
-  static_volume:  # Том для статики
+      - DJANGO_DEBUG=True
